@@ -1,3 +1,4 @@
+import 'package:event_management_app/views/screen/onboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,6 +10,11 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  void initState() {
+    super.initState();
+    redirect();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,18 +36,19 @@ class _SplashState extends State<Splash> {
           child: Column(
             mainAxisSize: MainAxisSize.min, // Shrinks the column to the size of its content
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min, // Shrinks the row to the size of its content
-                children:[
-                  Text("Red", style: TextStyle(fontSize: 48.sp, color: Colors.white, fontWeight: FontWeight.w700, fontFamily: "Product Sans")),
-                  Image.asset("assets/images/red carpet.png", height: 35.h, width: 41.w,),
-                ],
-              ),
-              Text("carpet", style: TextStyle(fontSize: 48.sp, fontWeight: FontWeight.w700),)
+              Image.asset("assets/images/logo.png", height: 98.h, width: 145.w),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> redirect() async {
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => Onboard()), // Replace YourNextPage with the page you want to navigate to
     );
   }
 }

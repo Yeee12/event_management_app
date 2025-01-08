@@ -1,6 +1,7 @@
+import 'package:event_management_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'splash.dart'; // Import your Splash screen
+
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true, // Optional
       splitScreenMode: true, // Optional
       builder: (context, child) {
-        return MaterialApp(
+        return  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Splash(),
+          initialRoute: AppRoutes.splash,
+          routes: AppRoutes.getRoutes(),
         );
       },
     );
